@@ -1,0 +1,14 @@
+of course! grep can just take multiple files for searching haha. Got so stuck on the idea that you can only one file can be the object of the search
+
+passthru executes a command
+it's calling grep on a file called dictionary.txt on the server
+grep -i $key dictionary.txt
+-i ignores case
+try to execute a command within a command?
+like "cat /etc/natas_pass/natas9" or something?
+exploit passthru directly?
+passing it "*" made it spit out the sourcecode... did it crash? or is this the beginnning of an exploit?
+
+use -f file option somehow?
+Use verbosity (e.g. explicitly say password does not match...)
+

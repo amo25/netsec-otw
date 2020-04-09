@@ -1,0 +1,7 @@
+Cross-site Content Hijacking:
+upload a .jpg file containing a Flash object
+Load important files off the victim's website
+
+https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload
+
+https://soroush.secproject.com/blog/2014/05/even-uploading-a-jpg-file-can-lead-to-cross-domain-data-hijacking-client-side-attack/

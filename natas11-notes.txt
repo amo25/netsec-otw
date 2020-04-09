@@ -1,0 +1,93 @@
+But will this work with $key = '<censored>' ???
+TODO: change showpassword back to yes
+xorencrypt is inverse of itself...
+$data will only get updated if the entered color is valid... does this matter? (maybe keeps things from getting overwritten)
+xor encryption is hard to crack if you don't know the key... which we dont... cookies are protected via xor encryption... so maybe we don't use the cookie?
+besides, I can't even get the cookie to change, even though it seems like it should depend on bg color...
+wait, actually they change a little bit
+
+Natas 11 notes:
+If I can set $data["showpassword] == "yes", then they'll give me the password
+Data is a cookie.
+function saveData($d) {
+    setcookie("data", base64_encode(xor_encrypt(json_encode($d))));
+}
+
+
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEVksFxFeaAw
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEVksFxZeaAw%3D
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEVksFxZeaAw
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEVkoFxZeaAw%3D - #fabfaf
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEVkoFxZeaAw%3D
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEVkoFxZZaAw - #fabfaa response
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEVkoFxZeaAw - request is the same as the old one!
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEVkoEBZZaAw - #fabaaa
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSFlkrEBZZaAw - #aaaaaa
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw - #ffffff
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw%3D
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw=
+
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSRwh6QUcIaAw%3D
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSRwh6QUcIaAw - #000000
+
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSRgp5RUIOaAw - #123456
+
+
+{"showpassword":"no","bgcolor":"#ffffff"}
+UK"�H+O%pSWh]UZ-T%UhR^,^h  - #ffffff
+UK"�H+O%pSWh]UZ-T%UhRF            - #123456
+yEBh
+
+
+123456 -> F\yEB\
+ffffff -> \^,\\^
+aaaaaa -> \Y+\\Y
+000000 -> G\zAG\
+111111 -> F {@F  - note I think the spaces in this one are tabs...
+222222 -> ExCE  - blank stuff for last two
+333333 -> D\yBD\
+444444 -> C\~EC\
+
+
+so the key is probably a length of 4, right? remainder is always either 0, 1, 2, or 3... what if the key is just 0000 ?
+no wait... repeats every 4th, so thats a length of 3...
+
+so assuming a key length of 4... 1 xord with what = F?
+1 = 00110001
+w = 01110111 so one of the characters is 'w' !!!
+F = 01000110
+
+2 = 00110010
+w = 01110111
+E = 01000101 holds up!
+
+2 = 00110010
+J = 01001010 'J'
+x = 01111000
+
+a = 01100001
+? = 00111000
+Y = 01011001
+
+f = 01100110
+? = 00111000 '8'
+^ = 01011110
+
+a = 01100001
+J = 01001010
+Y = 00101011 x doesn't hold up...
+
+2 = 00110010
+q = 01110001 'q'
+C = 01000011
+
+0 = 00110000
+? = 01110001 'q'
+A = 01000001
+
+
+
+
+
+
+
